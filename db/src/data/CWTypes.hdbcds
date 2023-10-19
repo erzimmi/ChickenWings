@@ -1,7 +1,7 @@
 context CWTypes {
 
   type BaseT {
-       NameT      : String(20);
+       NameT      : String(20); // Name
        PhoneT     : String(15);
        EmailT     : String(30);
        CityT      : String(20);

@@ -1,0 +1,17 @@
+// CDS View: Creates database View
+view OpenSeats
+as SELECT FROM Booking
+{
+       FLIGHT,
+       FDATE,
+       COUNT(SEAT) as TOTAL_SEATS
+} WHERE STATUS = 'AVAILABLE'
+  GROUP BY FLIGHT,
+           FDATE
+  HAVING COUNT(SEAT) > 2
+  ORDER BY FLIGHT ASC, FDATE DESC
+;
+
+
+
+

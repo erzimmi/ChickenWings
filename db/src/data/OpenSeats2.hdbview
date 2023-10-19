@@ -1,0 +1,14 @@
+// CDS View with Parameters: Creates database table function
+view OpenSeats2 with parameters P_DATE  :  LocalDate
+as SELECT FROM Booking
+{
+      FLIGHT,
+      FDATE,
+      COUNT(SEAT) as TOTAL_SEATS
+}  WHERE STATUS = 'AVAILABLE'
+    AND FDATE = :P_DATE
+   GROUP BY FLIGHT,
+            FDATE
+   HAVING CLOUNT(SEAT) > 2
+   ORDER BY FLIGHT ASC, FDATE DESC
+;
