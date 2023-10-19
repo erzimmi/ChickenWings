@@ -248,3 +248,25 @@ technical configuration {
     group type app group subtype ChickenWings group name main;
 };
 
+entity ConnectionNew
+{
+     key FLIGHT   : FlightT;        // Flight Number
+         //Managed Association - Origin Airport
+	 FROMAP : association[*, 1] to Airport {CODE};
+	 TOAP   : CodeT;    // Destination Airport
+	 DEPT   : LocalTime;    // Scheduled Departure Time
+	 ARRT   : LocalTime;    // Scheduled Arrival Time
+	 SSTARTD : LocalDate;   // Service Start Date
+	 SENDD   : LocalDate;   // Service End Date
+	 ESPRICE : PriceT;      // Economy Class Standard Price
+	 EPPRICE : PriceT;      // Economy Class Peak Price
+	 BSPRICE : PriceT;      // Business Class Standard Price
+	 BPPRICE : PriceT;      // Business Class Peak Price
+	 FSPRICE : PriceT;      // First Class Standard Price
+	 FPPRICE : PriceT;      // First Classe Peak Price
+	 MILES   : Integer;     // Distance in Miles
+	 CHANGE  : ChangeT;     // Change Timestamp and User
+	 // Unmanaged Associations
+	 _ToAirport     : association[*, 1] to Airport
+	   on _ToAirport.CODE = TOAP
+}
