@@ -269,4 +269,4 @@ entity ConnectionNew
 	 // Unmanaged Associations
 	 _ToAirport     : association[*, 1] to Airport
 	   on _ToAirport.CODE = TOAP
-}
+};
